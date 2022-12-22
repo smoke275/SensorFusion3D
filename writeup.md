@@ -342,6 +342,8 @@ exec_visualization = ['show_objects_in_bev_labels_in_camera']
 configs_det = det.load_configs(model_name="fpn_resnet")
 ```
 
+![img3](img/id_s1e21.png)
+
 ## Step-4: Performance Evaluation for Object Detection
 
 
@@ -447,6 +449,8 @@ exec_tracking = []
 exec_visualization = ['show_detection_performance']
 configs_det = det.load_configs(model_name="darknet")
 ```
+
+![img4](img/eval.png)
 
 ## Summary
 From this project we get some analysis of the applicability of LiDAR based object detection. The conversion of LiDAR range data to spatial volumes or 3D points are important for further analysis. The usage of resnet and YOLO for 3D detection is important. Neural Nets have the power to extract information from data of such high dimensionality. Evaluating the performance with help of standard maximal IOU mapping, mAP and representing the precision/recall of the bounding boxes are essential to showcase the performance of the system.
