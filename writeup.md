@@ -1,16 +1,5 @@
 # Track 3D-Objects Over Time
 
-### 1. Write a short recap of the four tracking steps and what you implemented there (filter, track management, association, camera fusion). Which results did you achieve? Which part of the project was most difficult for you to complete, and why?
-
-
-### 2. Do you see any benefits in camera-lidar fusion compared to lidar-only tracking (in theory and in your concrete results)?
-
-
-### 3. Which challenges will a sensor fusion system face in real-life scenarios? Did you see any of these challenges in the project?
-
-
-### 4. Can you think of ways to improve your tracking results in the future?
-
 This is a writeup submission for sensor fusion course  [Udacity Self-Driving Car Engineer Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213) : 3D Object Detection (Midterm).
 
 ## 3D Object detection
@@ -95,7 +84,39 @@ exec_detection = []
 exec_tracking = []
 exec_visualization = ['show_range_image']
 ```
-![img1](img/id_s1e21.png)
+![img11](img/p1.png)
+
+This is a 3D image generated from the point cloud.
+
+![img12](img/p2.png)
+
+The two objects in the picture are two cars.
+
+![img13](img/p3.png)
+
+We see 3 more cars in the picture.
+
+![img14](img/p4.png)
+
+This is another 3D image from another frame.
+
+![img15](img/p5.png)
+
+This 3D image from another frame shows 6 cars in a lane in traffic.
+
+![img16](img/p6.png)
+
+Zooming in we get to see 3 cars in that frame.
+
+![img17](img/p7.png)
+
+Two more cars.
+
+![img18](img/p8.png)
+
+
+One feature we see in all of the these cars is the bumper on the back. We can also figure out windows from these cars. Since windows are made of transparent glass. The LiDAR does not glass since the light goes through.
+
 
 Next we visualize the point cloud in Open3D and show 10 examples of vehicles in the point clouds
 
@@ -243,7 +264,7 @@ exec_tracking = []
 exec_visualization = []
 ```
 
-
+![img2](img/BEV map.png)
 
 ## Step-3: Model-based Object Detection in BEV Image
 
@@ -342,7 +363,7 @@ exec_visualization = ['show_objects_in_bev_labels_in_camera']
 configs_det = det.load_configs(model_name="fpn_resnet")
 ```
 
-![img3](img/id_s1e21.png)
+![img3](img/labels vs. detected objects.png)
 
 ## Step-4: Performance Evaluation for Object Detection
 
@@ -451,6 +472,22 @@ configs_det = det.load_configs(model_name="darknet")
 ```
 
 ![img4](img/eval.png)
+
+#### 1. Which part of the project was most difficult for you to complete, and why?
+
+The hardest part was creating the BEV.
+
+#### 2. Do you see any benefits in camera-lidar fusion compared to lidar-only tracking (in theory and in your concrete results)?
+
+Camera-lidar fusion would be much better than lidar alone since lidar is a highly sensitive sensor where as camera sensors are much more forgiving. Objects detected via LiDAR when reconciliated with camera based detection provided a much more robust detection of objects.
+
+#### 3. Which challenges will a sensor fusion system face in real-life scenarios? Did you see any of these challenges in the project?
+
+Sensor fusion would face challenges when partial data is provided. There can be cases where the field of view of one sensor is less than the field of view of the other sensor. In these cases, sensor fusion doesn't work or if it does it reduced the field of view.
+
+#### 4. Can you think of ways to improve your tracking results in the future?
+
+The system can probably be improved through more computation power. The more computation power on a YOLO system, the more robust their output is. This might reduce false positives.
 
 ## Summary
 From this project we get some analysis of the applicability of LiDAR based object detection. The conversion of LiDAR range data to spatial volumes or 3D points are important for further analysis. The usage of resnet and YOLO for 3D detection is important. Neural Nets have the power to extract information from data of such high dimensionality. Evaluating the performance with help of standard maximal IOU mapping, mAP and representing the precision/recall of the bounding boxes are essential to showcase the performance of the system.
