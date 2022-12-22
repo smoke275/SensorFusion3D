@@ -264,7 +264,7 @@ exec_tracking = []
 exec_visualization = []
 ```
 
-![img2](img/BEV map.png)
+![img2](img/BEV_map.png)
 
 ## Step-3: Model-based Object Detection in BEV Image
 
@@ -363,7 +363,7 @@ exec_visualization = ['show_objects_in_bev_labels_in_camera']
 configs_det = det.load_configs(model_name="fpn_resnet")
 ```
 
-![img3](img/labels vs. detected objects.png)
+![img3](img/detected.png)
 
 ## Step-4: Performance Evaluation for Object Detection
 
